@@ -3,7 +3,15 @@ import { catchAsync } from "../utils/cachedAsync.js"
 import { response } from "../utils/requestResponse.js"
 
 export const getCharacters = async (req, res, ) => {
-  const characters = await charactersService.getAllCharacters()
+  const { name } = req.query
+
+  let characters = [];
+  if (name) {
+    characters = await charactersService.getCharactersByName(name)
+  }
+  else {
+    characters = await charactersService.getAllCharacters()
+  }
   response(res, 200, characters);
 }
 

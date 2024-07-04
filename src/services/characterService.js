@@ -13,7 +13,6 @@ const getAllCharacters = async () => {
 }
 
 const getCharactersById = async (characterId) => {
-  console.log(characterId);
   const character = characters.find(({ id }) => id === Number(characterId))
 
   if (!character) {    
@@ -23,7 +22,13 @@ const getCharactersById = async (characterId) => {
   return character
 }
 
+const getCharactersByName = async (characterName) => {
+  const charactersData = characters.filter(({ name }) => name.includes(characterName))
+  return charactersData 
+}
+
 export default {
   getAllCharacters,
-  getCharactersById
+  getCharactersById,
+  getCharactersByName
 }
