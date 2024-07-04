@@ -5,5 +5,5 @@ import CharacterController  from '../controllers/charactersController.js'
 export const router = Router()
 
 
-router.get('/characters', CharacterController.getCharacters)
-router.get('/characters/:id', CharacterController.getCharactersById)
+router.get('/', CharacterController.getCharacters)
+router.get('/:id', CharacterController.getCharactersById)

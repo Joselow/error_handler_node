@@ -1,3 +1,5 @@
+import { ClientError } from "../errors/ClientError.js";
+
 const characters = [
   { id: 1, name: 'John Doe', role: 'Warrior', level: 20 },
   { id: 2, name: 'Jane Smith', role: 'Mage', level: 18 },
@@ -14,8 +16,8 @@ const getCharactersById = async (characterId) => {
   console.log(characterId);
   const character = characters.find(({ id }) => id === Number(characterId))
 
-  if (!character) {
-    throw Error('Not found character with this id')
+  if (!character) {    
+    throw new ClientError('Not found character with this id', 400)
   }
 
   return character
