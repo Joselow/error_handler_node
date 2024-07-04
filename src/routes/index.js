@@ -1,10 +1,7 @@
 import{ Router } from 'express'
 
-import CharacterController  from '../controllers/charactersController.js'
-import { validateName } from '../midlewares/validateName.js'
+import CharacterRouter from './characterRouter.js'
 
 export const router = Router()
 
-
-router.get('/', validateName ,CharacterController.getCharacters)
-router.get('/:id', CharacterController.getCharactersById)
+router.use('/characters', CharacterRouter)

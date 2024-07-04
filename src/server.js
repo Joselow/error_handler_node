@@ -9,7 +9,7 @@ export const server = express()
 server.use(express.json())
 server.use(morgan("dev"))
 
-server.use('/characters', router)
+server.use('/api', router)
 
 server.use((err, _req, res, _next) => {
   const { statusCode, message } = err

@@ -23,7 +23,7 @@ const getCharactersById = async (characterId) => {
 }
 
 const getCharactersByName = async (characterName) => {
-  const charactersData = characters.filter(({ name }) => name.includes(characterName))
+  const charactersData = characters.filter(({ name }) => name.toLowerCase().includes(characterName.toLowerCase()))
   return charactersData 
 }
 
